@@ -1,0 +1,23 @@
+.background{
+    background-color: rgba(181, 179, 179, 0.185);
+}
+.text{
+    text-shadow:black 0.5px -1px 4px;
+}
+.font{
+    font-family: 'Gabarito', cursive;
+}
+
+.contact {
+    /* width: px; */
+    /* height: px; */
+    overflow: hidden;
+}
+.contact-body{
+background-color: rgba(151, 152, 153, 0.144);
+transition: 2s;
+}
+
+.contact:hover .contact-body{
+    right: 0;
+}
