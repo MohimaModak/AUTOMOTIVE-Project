@@ -13,6 +13,7 @@ export const AuthContext = createContext(null);
 
 const AuthProvider = ({ children }) => {
   const [user, setuser] = useState(null);
+  const [loading, setloading] = useState(false);
 
   const googleProvider = new GoogleAuthProvider();
 
@@ -21,14 +22,18 @@ const AuthProvider = ({ children }) => {
   };
 
   const creatUser = (email, password) => {
+    setloading(true);
     return createUserWithEmailAndPassword(auth, email, password);
   };
 
   const signInUser = (email, password) => {
+    setloading(true);
+
     return signInWithEmailAndPassword(auth, email, password);
   };
 
   const logOut = () => {
+    setloading(true);
     signOut(auth);
   };
 
@@ -36,11 +41,12 @@ const AuthProvider = ({ children }) => {
     const observer = onAuthStateChanged(auth, (currentUser) => {
       console.log("stay here bodygard", currentUser);
       setuser(currentUser);
+      setloading(false);
     });
     return () => observer();
   }, []);
 
-  const authInfo = { user, creatUser, signInUser, logOut, signInWithGoogle };
+  const authInfo = { user,loading, creatUser, signInUser, logOut, signInWithGoogle };
 
   return (
     <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>
