@@ -14,6 +14,7 @@ import AuthProvider from "./Components/Provider/AuthProvider";
 import CategoryDetails from "./Components/CategoryDetails/CategoryDetails";
 import ErrorPage from "./Components/ErrorPage";
 import CategoryUpdate from "./Components/CategoryUpdate/CategoryUpdate";
+import PrivaRouter from "./Components/PrivaRouter";
 
 const router = createBrowserRouter([
   {
@@ -32,7 +33,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/mycart/cart",
-        element: <MyCart></MyCart>,
+        element: (
+          <PrivaRouter>
+            <MyCart></MyCart>
+          </PrivaRouter>
+        ),
         loader: () => fetch("http://localhost:1000/cart"),
       },
       {
@@ -51,7 +56,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/category/:name",
-        element: <Category></Category>,
+        element: (
+          <PrivaRouter>
+            <Category></Category>
+          </PrivaRouter>
+        ),
         loader: ({ params }) =>
           fetch(`http://localhost:1000/category/${params.name}`),
       },

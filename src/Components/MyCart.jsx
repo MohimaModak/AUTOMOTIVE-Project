@@ -6,11 +6,16 @@ const MyCart = () => {
   const cartLoader = useLoaderData();
   console.log(cartLoader);
 
+  const handleDelete = (name) => {
+    console.log(name);
+    Swal.fire("Delete confirm");
 
- const handleDelete = (id) =>{
-  alert(id)
- }
-
+    fetch(`http://localhost:1000/cart/${name}`, {
+      method: "DELETE",
+    })
+      .then((res) => res.json())
+      .then((data) => console.log(data));
+  };
 
   return (
     <div>
@@ -32,9 +37,10 @@ const MyCart = () => {
                     <h1 className="font-semibold">{cart.price}</h1>
                     <h1 className="font-medium">{cart.description}</h1>
                     <div className="flex justify-center items-center">
-                      <button 
-                      onClick={()=> handleDelete(cart._id)}
-                       className="bg-white font-bold text-lg text-gray-700 px-2 border text-center">
+                      <button
+                        onClick={() => handleDelete(cart.name)}
+                        className="bg-white font-bold text-lg text-gray-700 px-2 border text-center"
+                      >
                         DELETE
                       </button>
                     </div>
