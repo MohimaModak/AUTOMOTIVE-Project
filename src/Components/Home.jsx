@@ -18,7 +18,7 @@ const Home = () => {
 
   return (
     <div style={{ backgroundColor, color: textColor }}>
-      <button onClick={toggleBackground}>
+      <button className="text-3xl pl-5 pt-5" onClick={toggleBackground}>
         {darkTheme ? (
           <BsLightbulb></BsLightbulb>
         ) : (
