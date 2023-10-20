@@ -27,7 +27,7 @@ const CategoryDetails = () => {
   return (
     <div className="flex justify-center items-center ">
       <div className="flex justify-center items-center h-[100vh] max-w-md ">
-        <div className="bg-gray-200 p-5 shadow-2xl rounded-md">
+        <div className="bg-gray-200 p-5 shadow-2xl rounded-md mb-4">
           <div className="flex justify-center">
             <img
               src={detailsCategory.photoUrl}
@@ -37,6 +37,7 @@ const CategoryDetails = () => {
           <h1 className="font-bold text-center">{detailsCategory.brand}</h1>
           <h1 className="font-bold text-center">{detailsCategory.name}</h1>
           <h1 className="font-bold text-center">{detailsCategory.price}</h1>
+          <h1 className="font-bold text-center">{detailsCategory.rating}</h1>
           <h1 className="font-bold text-center">{detailsCategory.type}</h1>
           <div className="flex justify-center">
             <h1 className="font-bold text-center w-2/3">

@@ -38,6 +38,7 @@ const Category = () => {
                   <h1 className="font-bold">{category.brand}</h1>
                   <h1 className="font-semibold">{category.type}</h1>
                   <h1 className="font-semibold">{category.price}</h1>
+                  <h1 className="font-semibold">{category.rating}</h1>
                   <h1 className="font-semibold mb-2">{category.description}</h1>
                   <Link className="m-5" to={`/details/${category._id}`}>
                     <button className=" border px-2 bg-white uppercase font-semibold">

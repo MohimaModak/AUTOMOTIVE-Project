@@ -74,7 +74,7 @@ const Navbar = () => {
               <NavLink
                 to="/register"
                 className={`({ isActive, isPending }) =>
-          isPending ? "underline" : isActive ? "text-black bg-gradient-to-r from-gray-100 to-gray-300 p-2 rounded-md" : ""`}
+          isPending ? "underline" : isActive ? "" : ""`}
               >
                 Register
               </NavLink>
@@ -83,7 +83,7 @@ const Navbar = () => {
               <NavLink
                 to="/login"
                 className={` ({ isActive, isPending }) =>
-          isPending ? "underline" : isActive ? "text-black bg-gradient-to-r from-gray-100 to-gray-300 p-2 rounded-md" : ""`}
+          isPending ? "underline" : isActive ? "" : ""`}
               >
                 Login
               </NavLink>
