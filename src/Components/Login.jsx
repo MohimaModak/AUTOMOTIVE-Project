@@ -34,10 +34,10 @@ const Login = () => {
 
     signInUser(email, password)
       .then((result) => {
+        navigate(location?.state ? location.state : "/");
         console.log(result.user);
         e.target.reset();
         Swal.fire("User successfully log-in");
-        navigate(location?.state ? location.state : "/");
       })
       .catch((error) => console.error(error));
   };

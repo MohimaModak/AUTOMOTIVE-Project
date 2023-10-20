@@ -151,25 +151,11 @@ const AddProduct = () => {
                     placeholder="rating"
                     id="rating"
                     name="rating"
-                    className="p-1"
+                    className="p-1 w-full"
                   />
                 </label>
               </div>
-              <div className="form-control">
-                <label className="label">
-                  <span className="label-text text-white">Image</span>
-                </label>
-                <label className="input-group">
-                  <span>Image</span>
-                  <input
-                    type="text"
-                    placeholder="Image"
-                    id="photoUrl"
-                    name="photoUrl"
-                    className="p-1"
-                  />
-                </label>
-              </div>
+          
 
             </div>
             <div className="bg-white w-full mt-5 py-1 rounded-full text-center">

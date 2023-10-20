@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import Swal from "sweetalert2";
 
 const MyCart = () => {
   const cartLoader = useLoaderData();
   console.log(cartLoader);
+  const [deleteCart, setdeleteCart] = useState(cartLoader);
 
   const handleDelete = (name) => {
     console.log(name);
@@ -15,13 +16,17 @@ const MyCart = () => {
     })
       .then((res) => res.json())
       .then((data) => console.log(data));
+      if (data.deletedCount > 0) {
+        const remaining = deleteCart.filter((cart) => cart.id !== id);
+        setdeleteCart(remaining);
+      }
   };
 
   return (
     <div>
       <div className="flex justify-center items-center bg-gray-200">
         <div className="grid md:grid-cols-3 gap-5 m-10">
-          {cartLoader.map((cart) => (
+          {deleteCart.map((cart) => (
             <div className="flex justify-center">
               <div>
                 <div className="bg-gray-100 rounded-md shadow-2xl">

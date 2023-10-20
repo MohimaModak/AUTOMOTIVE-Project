@@ -32,10 +32,6 @@ const Register = () => {
     creatUser(email, password)
       .then((result) => {
         console.log(result.user);
-        // e.target.reset();
-        // alert("User successfully register");
-        // navigate(location?.state ? location.state : "/");
-
         updateProfile(result.user, {
           displayName: name,
           photoURL: picture,
@@ -49,6 +45,7 @@ const Register = () => {
         console.error(error);
       });
   };
+
 
   const handleGoogle = () => {
     signInWithGoogle()

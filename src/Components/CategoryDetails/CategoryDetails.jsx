@@ -1,11 +1,11 @@
 import React from "react";
 import { Link, useLoaderData } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const CategoryDetails = () => {
   const detailsCategory = useLoaderData();
   console.log(detailsCategory);
 
-  // const {name,brand,price,type} = myCart
 
   const handleAddToCart = () => {
     fetch("http://localhost:1000/cart", {
@@ -16,7 +16,12 @@ const CategoryDetails = () => {
       body: JSON.stringify(detailsCategory),
     })
       .then((res) => res.json())
-      .then((data) => console.log(data));
+      .then((data) => {
+        console.log(data)
+        if (data.insertedId) {
+          Swal.fire("Product added to cart!");
+        }
+      });
   };
 
   return (

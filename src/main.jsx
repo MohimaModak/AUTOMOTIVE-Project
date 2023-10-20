@@ -52,6 +52,7 @@ const router = createBrowserRouter([
         loader: ({ params }) =>
           fetch(`http://localhost:1000/details/${params.id}`),
       },
+      
       {
         path: "/category/:name",
         element: (

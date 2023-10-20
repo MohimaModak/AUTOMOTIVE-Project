@@ -15,38 +15,47 @@ const Category = () => {
   }, []);
   const filterCategories = categories.filter(
     (category) =>
-      category.brand.toLowerCase() === brandCategory.name.toLowerCase()
+      category?.brand?.toLowerCase() === brandCategory?.name.toLowerCase()
   );
+  console.log(filterCategories);
 
   return (
     <div>
-      <Slider></Slider>
-    <div className="flex justify-center items-center">
-      {
-        <h1 className="md:grid grid-cols-3 gap-5 m-10 text-center">
-          {filterCategories.map((category) => (
-            <div className="border bg-slate-100 p-5 shadow-2xl">
-              <img src={category.photoUrl} />
-              <h1 className="font-bold">{category.name}</h1>
-              <h1 className="font-bold">{category.brand}</h1>
-              <h1 className="font-semibold">{category.type}</h1>
-              <h1 className="font-semibold">{category.price}</h1>
-              <h1 className="font-semibold mb-2">{category.description}</h1>
-              <Link className="m-5" to={`/details/${category._id}`}>
-                <button className=" border px-2 bg-white uppercase font-semibold">
-                  Details
-                </button>
-              </Link>
-              <Link to={`/update/${category._id}`}>
-                <button className="border px-2 bg-white uppercase font-semibold">
-                  Update
-                </button>
-              </Link>
-            </div>
-          ))}
-        </h1>
-      }
-    </div>
+      {filterCategories.length === 0 ? (
+        <div>
+          <h1>no data found</h1>
+        </div>
+      ) : (
+        <div>
+        <Slider></Slider>
+        <div className="flex justify-center items-center">
+          {
+            <h1 className="md:grid grid-cols-3 gap-5 m-10 text-center">
+              {filterCategories.map((category) => (
+                <div className="border bg-slate-100 p-5 shadow-2xl">
+                  <img src={category.photoUrl} />
+                  <h1 className="font-bold">{category.name}</h1>
+                  <h1 className="font-bold">{category.brand}</h1>
+                  <h1 className="font-semibold">{category.type}</h1>
+                  <h1 className="font-semibold">{category.price}</h1>
+                  <h1 className="font-semibold mb-2">{category.description}</h1>
+                  <Link className="m-5" to={`/details/${category._id}`}>
+                    <button className=" border px-2 bg-white uppercase font-semibold">
+                      Details
+                    </button>
+                  </Link>
+                  <Link to={`/update/${category._id}`}>
+                    <button className="border px-2 bg-white uppercase font-semibold">
+                      Update
+                    </button>
+                  </Link>
+                </div>
+              ))}
+            </h1>
+          }
+        </div>
+        </div>
+      )}
     </div>
   );
 };

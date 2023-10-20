@@ -13,11 +13,12 @@ export const AuthContext = createContext(null);
 
 const AuthProvider = ({ children }) => {
   const [user, setuser] = useState(null);
-  const [loading, setloading] = useState(false);
+  const [loading, setloading] = useState(true);
 
   const googleProvider = new GoogleAuthProvider();
 
   const signInWithGoogle = () => {
+    setloading(true)
     return signInWithPopup(auth, googleProvider);
   };
 
