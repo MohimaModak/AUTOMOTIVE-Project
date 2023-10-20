@@ -11,15 +11,17 @@ const MyCart = () => {
     console.log(name);
     Swal.fire("Delete confirm");
 
-    fetch(`http://localhost:1000/cart/${name}`, {
+    fetch(`https://server-assignment-kyyoqpfu4-mohimamodak.vercel.app/cart/${name}`, {
       method: "DELETE",
     })
       .then((res) => res.json())
-      .then((data) => console.log(data));
-      if (data.deletedCount > 0) {
-        const remaining = deleteCart.filter((cart) => cart.id !== id);
-        setdeleteCart(remaining);
-      }
+      .then((data) => {
+        console.log(data);
+        if (data.deletedCount > 0) {
+          const remaining = deleteCart.filter((cart) => cart.name !== name);
+          setdeleteCart(remaining);
+        }
+      });
   };
 
   return (

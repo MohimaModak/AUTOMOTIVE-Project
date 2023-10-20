@@ -9,21 +9,21 @@ const Category = () => {
   console.log(brandCategory);
 
   useEffect(() => {
-    fetch("http://localhost:1000/cars")
+    fetch("https://server-assignment-kyyoqpfu4-mohimamodak.vercel.app/cars")
       .then((res) => res.json())
       .then((data) => setCategories(data));
   }, []);
   const filterCategories = categories.filter(
     (category) =>
-      category?.brand?.toLowerCase() === brandCategory?.name.toLowerCase()
+      category?.brand?.toLowerCase() === brandCategory?.name?.toLowerCase()
   );
   console.log(filterCategories);
 
   return (
     <div>
       {filterCategories.length === 0 ? (
-        <div>
-          <h1>no data found</h1>
+        <div className="flex justify-center items-center h-[100vh]">
+          <h1 className="text-5xl text-center">All Product is already booked</h1>
         </div>
       ) : (
         <div>

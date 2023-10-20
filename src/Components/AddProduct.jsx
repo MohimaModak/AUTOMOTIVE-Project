@@ -20,7 +20,7 @@ const AddProduct = () => {
     };
     console.log(newCar);
 
-    fetch("http://localhost:1000/cars", {
+    fetch("https://server-assignment-kyyoqpfu4-mohimamodak.vercel.app/cars", {
       method: "POST",
       headers: {
         "content-type": "application/json",

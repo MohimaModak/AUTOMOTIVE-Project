@@ -23,7 +23,7 @@ const CategoryUpdate = () => {
       description,
     };
     console.log(updateCategory);
-    fetch(`http://localhost:1000/update/${_id}`, {
+    fetch(`https://server-assignment-kyyoqpfu4-mohimamodak.vercel.app/update/${_id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",

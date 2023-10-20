@@ -25,18 +25,24 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
-        loader: () => fetch("http://localhost:1000/category"),
+        loader: () => fetch("https://server-assignment-kyyoqpfu4-mohimamodak.vercel.app/category"),
       },
       {
         path: "/addproduct",
-        element: <AddProduct></AddProduct>,
+        element: (
+          <PrivaRouter>
+            <AddProduct></AddProduct>
+          </PrivaRouter>
+        ),
       },
       {
         path: "/mycart/cart",
         element: (
+          <PrivaRouter>
             <MyCart></MyCart>
+          </PrivaRouter>
         ),
-        loader: () => fetch("http://localhost:1000/cart"),
+        loader: () => fetch("https://server-assignment-kyyoqpfu4-mohimamodak.vercel.app/cart"),
       },
       {
         path: "/login",
@@ -50,9 +56,9 @@ const router = createBrowserRouter([
         path: "/details/:id",
         element: <CategoryDetails></CategoryDetails>,
         loader: ({ params }) =>
-          fetch(`http://localhost:1000/details/${params.id}`),
+          fetch(`https://server-assignment-kyyoqpfu4-mohimamodak.vercel.app/details/${params.id}`),
       },
-      
+
       {
         path: "/category/:name",
         element: (
@@ -61,13 +67,13 @@ const router = createBrowserRouter([
           </PrivaRouter>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:1000/category/${params.name}`),
+          fetch(`https://server-assignment-kyyoqpfu4-mohimamodak.vercel.app/category/${params.name}`),
       },
       {
         path: "/update/:id",
         element: <CategoryUpdate></CategoryUpdate>,
         loader: ({ params }) =>
-          fetch(`http://localhost:1000/update/${params.id}`),
+          fetch(`https://server-assignment-kyyoqpfu4-mohimamodak.vercel.app/update/${params.id}`),
       },
     ],
   },

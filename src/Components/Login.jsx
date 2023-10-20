@@ -6,7 +6,7 @@ import Swal from "sweetalert2";
 
 
 const Login = () => {
-  const { signInUser } = useContext(AuthContext);
+  const { signInUser,signInWithGoogle } = useContext(AuthContext);
 
   const location = useLocation();
   console.log(location);
@@ -40,6 +40,17 @@ const Login = () => {
         Swal.fire("User successfully log-in");
       })
       .catch((error) => console.error(error));
+  };
+
+  const handleGoogle = () => {
+    signInWithGoogle()
+      .then((result) => {
+        console.log(result.user);
+        navigate(location?.state ? location.state : "/");
+      })
+      .catch((error) => {
+        console.error(error);
+      });
   };
 
   return (
@@ -77,9 +88,9 @@ const Login = () => {
                 <button className=" p-1 bg-red-700 text-white">Login</button>
               </div>
 
-              <div className="flex justify-center items-center">
+              <div  className="flex justify-center items-center">
                 Sign in with{" "}
-                <span className="text-2xl cursor-pointer text-red-700">
+                <span onClick={handleGoogle} className="text-2xl cursor-pointer text-red-700">
                   <AiOutlineGoogle></AiOutlineGoogle>
                 </span>
               </div>
