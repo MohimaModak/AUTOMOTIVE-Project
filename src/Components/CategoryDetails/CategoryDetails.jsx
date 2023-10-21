@@ -1,11 +1,13 @@
 import React from "react";
 import { Link, useLoaderData } from "react-router-dom";
 import Swal from "sweetalert2";
+import { AiFillStar, AiOutlineStar } from "react-icons/ai";
+import Rating from "react-rating";
+
 
 const CategoryDetails = () => {
   const detailsCategory = useLoaderData();
   console.log(detailsCategory);
-
 
   const handleAddToCart = () => {
     fetch("https://server-assignment-kyyoqpfu4-mohimamodak.vercel.app/cart", {
@@ -17,7 +19,7 @@ const CategoryDetails = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data)
+        console.log(data);
         if (data.insertedId) {
           Swal.fire("Product added to cart!");
         }
@@ -37,7 +39,17 @@ const CategoryDetails = () => {
           <h1 className="font-bold text-center">{detailsCategory.brand}</h1>
           <h1 className="font-bold text-center">{detailsCategory.name}</h1>
           <h1 className="font-bold text-center">{detailsCategory.price}</h1>
-          <h1 className="font-bold text-center">{detailsCategory.rating}</h1>
+          <div className="flex justify-center items-center">
+            <Rating
+              initialRating={detailsCategory.rating}
+              emptySymbol={
+                <AiOutlineStar className="text-xl text-yellow-400" />
+              }
+              fullSymbol={<AiFillStar className="text-xl  text-yellow-400" />}
+              readonly
+            ></Rating>
+            <h1 className="font-bold text-center">{detailsCategory.rating}</h1>
+          </div>
           <h1 className="font-bold text-center">{detailsCategory.type}</h1>
           <div className="flex justify-center">
             <h1 className="font-bold text-center w-2/3">

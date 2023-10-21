@@ -10,6 +10,7 @@ const AddProduct = () => {
     const price = e.target.price.value;
     const photoUrl = e.target.photoUrl.value;
     const description = e.target.description.value;
+    const rating = e.target.rating.value;
     const newCar = {
       name,
       brand,
@@ -17,6 +18,7 @@ const AddProduct = () => {
       price,
       photoUrl,
       description,
+      rating
     };
     console.log(newCar);
 

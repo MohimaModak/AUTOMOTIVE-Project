@@ -23,13 +23,16 @@ const CategoryUpdate = () => {
       description,
     };
     console.log(updateCategory);
-    fetch(`https://server-assignment-kyyoqpfu4-mohimamodak.vercel.app/update/${_id}`, {
-      method: "PUT",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(updateCategory),
-    })
+    fetch(
+      `https://server-assignment-kyyoqpfu4-mohimamodak.vercel.app/update/${_id}`,
+      {
+        method: "PUT",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(updateCategory),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
@@ -47,7 +50,6 @@ const CategoryUpdate = () => {
     <div className="flex justify-center items-center h-[100vh]">
       <div className="bg-gray-300 max-w-min p-5 ">
         <form onSubmit={handleUpdate}>
-            
           <input
             type="text"
             placeholder="Car Name"
@@ -96,6 +98,7 @@ const CategoryUpdate = () => {
             name="photoUrl"
             defaultValue={photoUrl}
           />
+
           <div className="bg-white font-semibold text-center">
             <input type="submit" value="Update" />
           </div>
