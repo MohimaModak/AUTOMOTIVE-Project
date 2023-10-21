@@ -2,24 +2,35 @@ import { Link, useLoaderData } from "react-router-dom";
 import Banner from "./Banner/Banner";
 import SecondSection from "./SecondSection/SecondSection";
 import ThirdSection from "./ThirdSection/ThirdSection";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { BsLightbulb, BsLightbulbOff } from "react-icons/bs";
 
 const Home = () => {
   const categoryLoader = useLoaderData();
-  const [darkTheme, setdarkTheme] = useState(false);
+
+  const [darkLight, setdarkLight] = useState(
+    localStorage.getItem("darkLight") === "true"
+  );
 
   const toggleBackground = () => {
-    setdarkTheme((prevTheme) => !prevTheme);
+    setdarkLight((prevTheme) => {
+      const newTheme = !prevTheme;
+      localStorage.setItem("darkLight", newTheme.toString());
+      return newTheme;
+    });
   };
 
-  const backgroundColor = darkTheme ? "black" : "white";
-  const textColor = darkTheme ? "white" : "black";
+  useEffect(() => {
+    localStorage.setItem("darkLight", darkLight.toString());
+  }, [darkLight]);
+
+  const backgroundColor = darkLight ? "black" : "white";
+  const textColor = darkLight ? "white" : "black";
 
   return (
     <div style={{ backgroundColor, color: textColor }}>
       <button className="text-3xl pl-5 pt-5" onClick={toggleBackground}>
-        {darkTheme ? (
+        {darkLight ? (
           <BsLightbulb></BsLightbulb>
         ) : (
           <BsLightbulbOff></BsLightbulbOff>

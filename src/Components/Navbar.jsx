@@ -25,7 +25,7 @@ const Navbar = () => {
             isPending
               ? "underline"
               : isActive
-              ? "text-black bg-gradient-to-r from-gray-100 to-gray-300 p-2 rounded-md"
+              ? "text-black sm:pl-2 bg-gradient-to-r from-gray-100 to-gray-300 p-2 rounded-md"
               : ""
           }
         >
@@ -37,7 +37,7 @@ const Navbar = () => {
             isPending
               ? "underline"
               : isActive
-              ? "text-black bg-gradient-to-r from-gray-100 to-gray-300 p-2 rounded-md"
+              ? "text-black sm:pl-2 bg-gradient-to-r from-gray-100 to-gray-300 p-2 rounded-md"
               : ""
           }
         >
@@ -49,7 +49,7 @@ const Navbar = () => {
             isPending
               ? "underline"
               : isActive
-              ? "text-black bg-gradient-to-r from-gray-100 to-gray-300 p-2 rounded-md"
+              ? "text-black sm:pl-2 bg-gradient-to-r from-gray-100 to-gray-300 p-2 rounded-md"
               : ""
           }
         >
